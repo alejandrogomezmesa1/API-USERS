@@ -64,10 +64,27 @@ const options = {
               description: "Email del usuario",
               example: "alejo@test.com",
             },
+            password: {
+              type: "string",
+              description: "Contraseña del usuario",
+              example: "123456",
+            },
           },
         },
       },
+      securitySchemes: {
+        bearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+        },
+      },
     },
+    security: [
+      {
+        bearerAuth: [],
+      },
+    ],
   },
   apis: ["./Routes/*.js"],
 };

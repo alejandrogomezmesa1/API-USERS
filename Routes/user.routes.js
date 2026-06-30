@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
+const authMiddleware = require("../Middleware/auth.middleware");
 const {getUsers, createUser, updateUser, deleteUser} = require("../Controllers/user.controller");
+
+// Require authentication for all user routes
+router.use(authMiddleware);
 
 /**
  * @swagger
