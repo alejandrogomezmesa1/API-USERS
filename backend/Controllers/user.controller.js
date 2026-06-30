@@ -27,7 +27,7 @@ const updateUser = async (req, res) => {
     const updatedUser = await User.findByIdAndUpdate(
       id,
       { name, email },
-      { new: true },
+      { returnDocument: 'after' },
     );
 
     if (!updatedUser) {
